@@ -89,7 +89,7 @@ with detection_graph.as_default():
       #print(num_detections)
       # Visualization of the results of a detection.
       vis_util.visualize_boxes_and_labels_on_image_array(
-#          image_np,
+  #          image_np,
           image,
           np.squeeze(boxes),
           np.squeeze(classes).astype(np.int32),
@@ -100,6 +100,6 @@ with detection_graph.as_default():
           line_thickness=4)
       out.write(image)
 
-
     cap.release()
-    out.release()
+    if out:
+        out.release()
