@@ -55,7 +55,7 @@ with detection_graph.as_default():
           break
 
       # 降低图像分辨率至原来的一半
-    #   image = cv2.resize(image, (0, 0), fx=0.5, fy=0.5)
+      image = cv2.resize(image, (0, 0), fx=0.5, fy=0.5)
 
       if out is None:
           [h, w] = image.shape[:2]
@@ -96,7 +96,7 @@ with detection_graph.as_default():
           np.squeeze(scores),
           category_index,
           use_normalized_coordinates=True,
-          min_score_thresh=0.8,  # 提高检测阈值至0.8    
+          min_score_thresh=0.5,  # 降低检测阈值至0.5    
           line_thickness=4)
       out.write(image)
 
